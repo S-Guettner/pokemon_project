@@ -1,11 +1,10 @@
-const PokemonCards = () => {
+const PokemonCards = (props) => {
     return ( 
         <div className="pokemonCards">
             <img src="" alt="" />
             <div>
-                <h1>HAllo</h1>
-                <p>Lorem ipsum dolor sit amet consectet</p>
-                <p></p>
+                <p>{props.id}</p>
+                <p>{props.name}</p>
             </div>
         </div>
      );

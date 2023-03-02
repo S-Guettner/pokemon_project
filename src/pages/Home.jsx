@@ -15,9 +15,7 @@ const Home = () => {
         })
     },[])
     
-    if(pokemon.length > 0){
-        console.log(pokemon)
-    }
+
 
     return ( 
         <main>

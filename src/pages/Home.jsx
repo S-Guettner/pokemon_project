@@ -27,7 +27,8 @@ const Home = () => {
 
                     <PokemonCards 
                     key={uuidv4()}
-                    name={items.name} 
+                    name={items.name}
+                    url={items.url}
                     id={index + 1}
                     />
 

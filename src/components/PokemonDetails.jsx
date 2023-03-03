@@ -14,7 +14,7 @@ const PokemonDetails = () => {
         .then(data => {
             setDetails(data.sprites.other.dream_world.front_default)
             setName(data.forms[0].name)
-            console.log(data)
+            console.log(data.types)
         })
     },[])
 

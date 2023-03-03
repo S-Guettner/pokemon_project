@@ -10,7 +10,7 @@ const Details = () => {
             <div>
             <PokemonDetails 
             
-
+            
             />
             </div>
         </div>

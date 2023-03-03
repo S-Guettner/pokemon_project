@@ -38,7 +38,8 @@ const PokemonDetails = () => {
             <img src={details} alt="" />
             <h1>#{test.id}</h1>
             <h2>{name}</h2>
-            <p>{testArr}</p>
+            <p className="type1">{testArr[0]}</p>
+            <p className="type2">{testArr[1]}</p>
         </div>
          );
 }

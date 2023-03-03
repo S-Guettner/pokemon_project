@@ -6,7 +6,7 @@ import Details from './pages/Details'
 
 function App() {
 
-
+// hello //
   return (
     <div className="App">
         <BrowserRouter>

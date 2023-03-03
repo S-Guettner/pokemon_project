@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import PokemonCards from '../components/PokemonCards.jsx'
 import { v4 as uuidv4 } from 'uuid';
+import Alltypes from '../components/AllTypes/AllTypes.jsx';
 
 const Home = () => {
     
@@ -15,12 +16,16 @@ const Home = () => {
             
         })
     },[])
-    
+
+
+
+
 if(display){
 
     return ( 
         <main>
             <button onClick={() => setDisplay(false)}>types</button>
+            {/* <Navbar /> */}
             <h1>Home</h1>
                 {pokemon.map((items,index) => {
                 return(
@@ -45,6 +50,7 @@ else if (!display){
         <div>
             <h1>Hallo</h1>
             <button onClick={() => setDisplay(true)}>X</button>
+            <Alltypes />
         </div>
 
     )

@@ -1,8 +1,8 @@
-import { useState } from "react";
+
 
 const SingleType = (props) => {
     
-    const [input, setInput] = useState([])
+
     
     const arr = []
 

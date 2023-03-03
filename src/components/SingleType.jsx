@@ -1,11 +1,25 @@
+import { useState } from "react";
+
 const SingleType = (props) => {
     
+    const [input, setInput] = useState([])
+    
+    const arr = []
 
+   
     
     return ( 
 
         <div>
-            <button onClick={(e) => {console.log(e.target.value)}} value={props.name}>{props.name}</button>
+            <button onClick={(e) => {arr.push(e.target.value)
+            console.log(arr.join(" "))
+            
+            }} value={props.name}>{props.name}</button>
+            
+            {/* {<option value={props.name}>{props.name}</option>} */}
+
+            
+            {/* <button value={props.name} onClick={(e) => setInput(e.target.value)}></button> */}
         </div>
         
      );

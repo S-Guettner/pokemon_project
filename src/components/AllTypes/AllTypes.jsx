@@ -28,10 +28,14 @@ const Alltypes = () => {
             <h1>alltypes</h1>
             {array.map((item) => {
                 return(
-                    <SingleType 
-                    key={uuidv4()}
-                    name={item}
-                    />
+                    
+
+                        <SingleType 
+                        key={uuidv4()}
+                        name={item}
+                        />
+
+                    
                 )
             })}
         </div>

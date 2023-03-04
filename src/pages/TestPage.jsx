@@ -5,38 +5,87 @@ import { v4 as uuidv4 } from 'uuid';
 const Testpage = () => {
     
     const [pokemonName,setPokemonName] = useState([])
-/*     const [url,setUrl] = useState("")
-    const [type,setType] = useState("") */
-    const urlArr = []
-    const typesArr = []
-    const filteredTypesArr =[]
+    const [basicData,setBasicData] = useState([])
+    const [searchedType,setSearchedType] = useState("")
+
     
-    
-    const typeTestArr = ["poison","grass"]
-    const [id,setId] = useState()
-    const typeFoundID = []
-    const displayLimit = 20
 
         useEffect(() => {
-        fetch(`https://pokeapi.co/api/v2/type/grass`)
+
+
+        const filteredTypesArr = []
+        let arrLength
+        /* let searchedType = "grass" */
+        
+        fetch(`https://pokeapi.co/api/v2/type/${searchedType}`)
         .then(res => res.json())
         .then(data => {
-            /* setPokemonName(data.results) */
-            console.log(data.pokemon)
-            data.pokemon.map((item) => {
-                console.log(item.pokemon.name)
-            })
             
-        })
-    },[])
+            data.pokemon.map((item) => {
+                filteredTypesArr.push(item.pokemon.name)
+                
+            })
+            setPokemonName(filteredTypesArr)
+            arrLength = filteredTypesArr.length
 
+
+
+            fetch(`https://pokeapi.co/api/v2/pokemon?limit=${arrLength}&offset=0`)
+            .then(res => res.json())
+            .then(data => {
+/*                 console.log(data.results) */
+                setBasicData(data.results)
+            })
+        })
+
+        
+    },[searchedType])
+    
+    pokemonName.map((item) => {
+        console.log(item)
+
+
+    })
 
     
     
 
     return ( 
-                    <main>
-                {pokemonName.map((items,index) => {
+
+        <main>
+                        <button onClick={() => setSearchedType("bug")}>Bug</button>
+                        <button onClick={() => setSearchedType("dark")}>Dark</button>
+                        <button onClick={() => setSearchedType("dragon")}>Dragon</button>
+                        <button onClick={() => setSearchedType("electric")}>Electric</button>
+                        <button onClick={() => setSearchedType("fairy")}>Fairy</button>
+                        <button onClick={() => setSearchedType("fighting")}>Fighting</button>
+                        <button onClick={() => setSearchedType("fire")}>Fire</button>
+                        <button onClick={() => setSearchedType("flying")}>Flying</button>
+                        <button onClick={() => setSearchedType("ghost")}>Ghost</button>
+                        <button onClick={() => setSearchedType("grass")}>Grass</button>
+                        <button onClick={() => setSearchedType("ground")}>Ground</button>
+                        <button onClick={() => setSearchedType("ice")}>Ice</button>
+                        <button onClick={() => setSearchedType("normal")}>Normal</button>
+                        <button onClick={() => setSearchedType("plant")}>Plant</button>
+                        <button onClick={() => setSearchedType("poison")}>Poison</button>
+                        <button onClick={() => setSearchedType("psychic")}>Psychic</button>
+                        <button onClick={() => setSearchedType("rock")}>Rock</button>
+                        <button onClick={() => setSearchedType("steel")}>Steel</button>
+                        <button onClick={() => setSearchedType("water")}>Water</button>
+
+
+                    {pokemonName.map((item) => {
+                        return(
+                        <div>
+                            <p>{item}</p>
+                        </div>
+                        
+                        )
+                    
+                    })}
+
+
+{/*                 {basicData.map((items,index) => {
                     return(
                             <PokemonCards 
                             key={uuidv4()}
@@ -45,7 +94,7 @@ const Testpage = () => {
                             id={index + 1}
                             />
                     )
-                })}
+                })} */}
             </main>
      );
 }

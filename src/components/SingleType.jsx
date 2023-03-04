@@ -1,10 +1,12 @@
 
+export const arr = []
+
 
 const SingleType = (props) => {
     
 
     
-    const arr = []
+    
 
    
     
@@ -24,5 +26,7 @@ const SingleType = (props) => {
         
      );
 }
- 
+
+
+
 export default SingleType;

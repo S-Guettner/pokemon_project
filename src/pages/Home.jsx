@@ -1,12 +1,13 @@
 import {useState, useEffect} from 'react'
 import PokemonCards from '../components/PokemonCards.jsx'
 import { v4 as uuidv4 } from 'uuid';
-import Alltypes from '../components/AllTypes/AllTypes.jsx';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
+
+    
     
     const [pokemon,setPokemon] = useState([])
-    const [display,setDisplay] = useState (true)
 
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/pokemon?limit=100&offset=0`)
@@ -17,45 +18,25 @@ const Home = () => {
         })
     },[])
 
-
-
-
-if(display){
-
-    return ( 
-        <main>
-            <button onClick={() => setDisplay(false)}>types</button>
-            {/* <Navbar /> */}
-            <h1>Home</h1>
+return ( 
+            <main>
+                <Link to={'/type'}>To all types</Link>
                 {pokemon.map((items,index) => {
-                return(
-    
-                    <PokemonCards 
-                    key={uuidv4()}
-                    name={items.name}
-                    url={items.url}
-                    id={index + 1}
-                    />
-    
-                )
-            })}
-           
-        </main>
+                    return(
+                            <PokemonCards 
+                            key={uuidv4()}
+                            name={items.name}
+                            url={items.url}
+                            id={index + 1}
+                            />
+                    )
+                })}
+            </main>
      );
 
 }
-else if (!display){
-    
-    return(
-        <div>
-            <h1>Hallo</h1>
-            <button onClick={() => setDisplay(true)}>X</button>
-            <Alltypes />
-        </div>
 
-    )
-}
- 
-}
- 
+
+
+
 export default Home;

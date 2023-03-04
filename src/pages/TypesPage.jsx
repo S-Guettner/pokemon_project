@@ -1,11 +1,14 @@
 import { useEffect,useState } from "react";
-import SingleType from "../SingleType.jsx";
+
 import { v4 as uuidv4 } from 'uuid';
 
-const Alltypes = () => {
+const TypesPage = () => {
     
     const [types,setTypes] = useState([])
     const array = []
+    const typeArr = []
+
+    const [stateArr, setStateArr] = useState([])
 
     useEffect(() => {
         fetch(`https://pokeapi.co/api/v2/type/`)
@@ -23,26 +26,35 @@ const Alltypes = () => {
         
     })
 
+
+  function saveValue(value) {
+    setStateArr( (prevValori)  => [...prevValori, value])
+  }
+  console.log(stateArr)
+
     return ( 
         <div>
             <h1>alltypes</h1>
             <div>
             {array.map((item) => {
                 return(
-                    
+                        <div>
 
-                        <SingleType 
-                        key={uuidv4()}
-                        name={item}
-                        />
+                            <button onClick={(e) => {
+                                saveValue(e.target.value)
+                                
 
-                    
-                )
+                                }} value={item} key={uuidv4()}>{item}</button>
+    
+                                    
+                        </div>    
+                        )
             })}
+            <p>{stateArr}</p>
             </div>
         </div>
 
      );
 }
  
-export default Alltypes;
+export default TypesPage;

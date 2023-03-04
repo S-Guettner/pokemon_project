@@ -28,7 +28,7 @@ const TypesPage = () => {
 
 
   function saveValue(value) {
-    setStateArr( (prevValori)  => [...prevValori, value])
+    setStateArr( (typeValue)  => [...typeValue, value])
   }
   console.log(stateArr)
 
@@ -38,7 +38,7 @@ const TypesPage = () => {
             <div>
             {array.map((item) => {
                 return(
-                        <div>
+                        
 
                             <button onClick={(e) => {
                                 saveValue(e.target.value)
@@ -47,7 +47,7 @@ const TypesPage = () => {
                                 }} value={item} key={uuidv4()}>{item}</button>
     
                                     
-                        </div>    
+
                         )
             })}
             <p>{stateArr}</p>

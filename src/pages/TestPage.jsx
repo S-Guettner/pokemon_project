@@ -4,50 +4,39 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Testpage = () => {
     
-    const [pokemon,setPokemon] = useState([])
-    const typeTestArr = ["grass","poison"]
+    const [pokemonName,setPokemonName] = useState([])
+/*     const [url,setUrl] = useState("")
+    const [type,setType] = useState("") */
+    const urlArr = []
+    const typesArr = []
+    const filteredTypesArr =[]
+    
+    
+    const typeTestArr = ["poison","grass"]
     const [id,setId] = useState()
     const typeFoundID = []
     const displayLimit = 20
 
         useEffect(() => {
-        fetch(`https://pokeapi.co/api/v2/pokemon?limit=${displayLimit}&offset=0`)
+        fetch(`https://pokeapi.co/api/v2/type/grass`)
         .then(res => res.json())
         .then(data => {
-            setPokemon(data.results)
+            /* setPokemonName(data.results) */
+            console.log(data.pokemon)
+            data.pokemon.map((item) => {
+                console.log(item.pokemon.name)
+            })
+            
         })
     },[])
+
+
     
     
-    const filterFetch = (i) => {useEffect(() => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${i}/`)
-        .then(res => res.json())
-        .then(data => {
-            if(typeTestArr[0] === data.types[0].type.name 
-                || typeTestArr[0] === data.types[1].type.name 
-                || typeTestArr[1] === data.types[0].type.name 
-                || typeTestArr[1] === data.types[1].type.name){
-/*                     typeFoundID.push(data.id)
-                    setId(data.id)
-                     */
-
-                    console.log(data.types,data.id)
-
-                }
-            })
-        },[])
-    }
-        
-        
-        for(let i = 1; i <= 10; i++){
-            filterFetch((i.toString()))
-            console.log(i.toString())
-            
-        }
 
     return ( 
                     <main>
-                {pokemon.map((items,index) => {
+                {pokemonName.map((items,index) => {
                     return(
                             <PokemonCards 
                             key={uuidv4()}

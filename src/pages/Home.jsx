@@ -79,12 +79,15 @@ if(!display && !buttonClick){
     return ( 
 
         <main>
-            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" name="" id="" />
-            <p>{searchedPokemon}</p>
-            <button onClick={() => setButtonClick(true)}>SEARCH BUTTTTTTTTTONNN</button>
+            <div className="buttonSearch">
+            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" />
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png?20150121202211" alt="" />
+            <button onClick={() => setButtonClick(true)}>SEARCH </button>
+            </div>
             
 
-
+<div className="buttonsContainer">
 <button onClick={() => {setSearchedType("bug") , setDisplay(true)}}>Bug</button>
 <button onClick={() => {setSearchedType("dark"), setDisplay(true)}}>Dark</button>
 <button onClick={() => {setSearchedType("dragon") ,setDisplay(true)}}>Dragon</button>
@@ -104,6 +107,9 @@ if(!display && !buttonClick){
 <button onClick={() => {setSearchedType("rock"), setDisplay(true)}}>Rock</button>
 <button onClick={() => {setSearchedType("steel"), setDisplay(true)}}>Steel</button>
 <button onClick={() => {setSearchedType("water") ,setDisplay(true)}}>Water</button>
+
+</div>
+
                 {/* =========== pokemonFiltered ===========> gibt gefilterte Liste zurück
                     =========== basicData       ===========> gibt ungefilterte Liste zurück
                 */}
@@ -135,12 +141,15 @@ if(!display && !buttonClick){
 
     return(
         <main>
+           <div className="buttonSearch">
+            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" />
 
-
-            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" name="" id="" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png?20150121202211" alt="" />
+            <button onClick={() => setButtonClick(true)}>SEARCH </button>
+            </div>
             
-            <p>{searchedPokemon}</p>
-
+            
+<div className="buttonsContainer">
 <button onClick={() => {setSearchedType("bug") , setDisplay(true)}}>Bug</button>
 <button onClick={() => {setSearchedType("dark"), setDisplay(true)}}>Dark</button>
 <button onClick={() => {setSearchedType("dragon") ,setDisplay(true)}}>Dragon</button>
@@ -160,7 +169,7 @@ if(!display && !buttonClick){
 <button onClick={() => {setSearchedType("rock"), setDisplay(true)}}>Rock</button>
 <button onClick={() => {setSearchedType("steel"), setDisplay(true)}}>Steel</button>
 <button onClick={() => {setSearchedType("water") ,setDisplay(true)}}>Water</button>
-
+</div>
 
 <button onClick={() => {setDisplay(false)}}>All Pokemon</button>
             

@@ -4,16 +4,22 @@ const Details = () => {
     
     
     return ( 
+        <main>
         
-        <div className="pokemonCardsDetails">
+        
+        
+        
+           <div className="pokemonCardsDetails">
             {/* <img src={img} alt="" /> */}
-            <div>
+            <div >
             <PokemonDetails 
             
             
             />
             </div>
         </div>
+        </main>
+
      );
 }
  

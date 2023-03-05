@@ -34,12 +34,17 @@ const PokemonDetails = () => {
         
 
     return ( 
-        <div>
+        < div className="details--details-">
             <img src={details} alt="" />
+           
+            <div className="idContainerDetails">
             <h1>#{test.id}</h1>
             <h2>{name}</h2>
+            </div>
+            <div className="pokemonCards--detailss">
             <p className="type1">{testArr[0]}</p>
             <p className="type2">{testArr[1]}</p>
+            </div>
         </div>
          );
 }

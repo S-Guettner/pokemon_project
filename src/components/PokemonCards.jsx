@@ -17,8 +17,8 @@ const PokemonCards = (props) => {
         <Link to={`/details/${id}`}>
         <div className="pokemonCards">
             <img src={img} alt="" />
-            <div>
-                <p>{id}</p>
+            <div className="pokemonCards--details">
+                <p>#{id}</p>
                 <p>{props.name}</p>
             </div>
         </div>

@@ -55,7 +55,7 @@ const Home = () => {
                 console.log(item)
             }) */
 
-            fetch(`https://pokeapi.co/api/v2/pokemon/${searchedPokemon}`)
+            fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`)
             .then(res => res.json())
             .then(data => {
                 setSearchedDetails(data)
@@ -74,7 +74,7 @@ const Home = () => {
         
     },[searchedType,searchedPokemon])
     
-if(!display){
+if(!display && searchedPokemon.length === 0){
     return ( 
 
         <main>
@@ -126,20 +126,10 @@ if(!display){
 
                     )
                 })} 
-{/*             {[searchedDetails].map((items,index) => {
-                    return(
-                            <PokemonCards 
-                            key={uuidv4()}
-                            name={items.name}
-                            url={searchedUrl}
-                            id={index + 1}
-                            />
 
-                    )
-                })}  */}
             </main>
      )
-}else {
+}else if(display && searchedPokemon.length === 0) {
 
     return(
         <main>
@@ -188,6 +178,25 @@ if(!display){
 
     )
 
+}else if(searchedPokemon.length > 0){
+    return(
+        <main>
+            <h1>hallo</h1>
+            {[searchedDetails].map((items,index) => {
+                   return(
+                           <PokemonCards 
+                           key={uuidv4()}
+                           name={items.name}
+                           url={searchedUrl}
+                           id={index + 1}
+                           />
+
+                   )
+               })}  
+
+        </main>
+       
+    )
 }
 }
  

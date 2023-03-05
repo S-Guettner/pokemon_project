@@ -9,8 +9,6 @@ const Testpage = () => {
     
     const [basicData,setBasicData] = useState([])
     const [searchedType,setSearchedType] = useState("grass")
-    const [filteredData, setFilteredData] = useState([])
-    const filteredListArr = []
     const [display,setDisplay] = useState(false)
     
 
@@ -25,7 +23,7 @@ const Testpage = () => {
         .then(res => res.json())
         .then(data => {
             
-            setFilteredData(data.pokemon)
+            /* setFilteredData(data.pokemon) */
             /* console.log(data) */
 
             data.pokemon.map((item) => {

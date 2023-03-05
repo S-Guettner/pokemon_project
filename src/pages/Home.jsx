@@ -10,9 +10,10 @@ const Home = () => {
     const [basicData,setBasicData] = useState([])
     const [searchedType,setSearchedType] = useState("grass")
     const [display,setDisplay] = useState(false)
-    const [searchedPokemon, setSearchedPokemon] = useState("pikachu")
+    const [searchedPokemon, setSearchedPokemon] = useState("")
     
     const [searchedDetails,setSearchedDetails] = useState({})
+    const [searchedUrl, setSearchedUrl] = useState()
     
 
 
@@ -54,11 +55,11 @@ const Home = () => {
                 console.log(item)
             }) */
 
-            fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`)
+            fetch(`https://pokeapi.co/api/v2/pokemon/${searchedPokemon}`)
             .then(res => res.json())
             .then(data => {
                 setSearchedDetails(data)
-
+                setSearchedUrl(data.species.url.replace("-species" ,""))
                 
                 
                 console.log(data)
@@ -114,7 +115,7 @@ if(!display){
                             />
                     )
                 })} */}
-{/*             {basicData.map((items,index) => {
+            {basicData.map((items,index) => {
                     return(
                             <PokemonCards 
                             key={uuidv4()}
@@ -124,24 +125,29 @@ if(!display){
                             />
 
                     )
-                })}  */}
-            {[searchedDetails].map((items,index) => {
+                })} 
+{/*             {[searchedDetails].map((items,index) => {
                     return(
                             <PokemonCards 
                             key={uuidv4()}
                             name={items.name}
-                            g
+                            url={searchedUrl}
                             id={index + 1}
                             />
 
                     )
-                })} 
+                })}  */}
             </main>
      )
 }else {
 
     return(
         <main>
+
+
+            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" name="" id="" />
+            <p>{searchedPokemon}</p>
+
 <button onClick={() => {setSearchedType("bug") , setDisplay(true)}}>Bug</button>
 <button onClick={() => {setSearchedType("dark"), setDisplay(true)}}>Dark</button>
 <button onClick={() => {setSearchedType("dragon") ,setDisplay(true)}}>Dragon</button>

@@ -10,7 +10,6 @@ const PokemonCards = (props) => {
     .then(res => res.json())
     .then(data => {
         setImg(data.sprites.other.dream_world.front_default)
-        console.log(data.id)
         setId(data.id)
     })
 

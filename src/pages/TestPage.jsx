@@ -124,6 +124,9 @@ if(!display){
 <button onClick={() => {setSearchedType("rock"), setDisplay(true)}}>Rock</button>
 <button onClick={() => {setSearchedType("steel"), setDisplay(true)}}>Steel</button>
 <button onClick={() => {setSearchedType("water") ,setDisplay(true)}}>Water</button>
+
+
+<button onClick={() => {setDisplay(false)}}>All Pokemon</button>
             
             {pokemonFiltered.map((items,index) => {
             return(

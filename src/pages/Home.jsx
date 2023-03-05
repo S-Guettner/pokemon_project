@@ -10,10 +10,13 @@ const Home = () => {
     const [basicData,setBasicData] = useState([])
     const [searchedType,setSearchedType] = useState("grass")
     const [display,setDisplay] = useState(false)
+    const [searchedPokemon, setSearchedPokemon] = useState("pikachu")
+    
+    const [searchedDetails,setSearchedDetails] = useState({})
     
 
-        useEffect(() => {
 
+        useEffect(() => {
 
         const filteredTypesArr = []
         let arrLength
@@ -37,22 +40,47 @@ const Home = () => {
 
 
 
-            fetch(`https://pokeapi.co/api/v2/pokemon?limit=${arrLength}&offset=0`)
+            fetch(`https://pokeapi.co/api/v2/pokemon?limit=100&offset=0`)
             .then(res => res.json())
             .then(data => {
                 setBasicData(data.results)
-                /* console.log(data.results) */
+                /* console.log(basicData) */
+            })
+
+  /*           const copy = [...basicData]
+            console.log(copy)
+            console.log(basicData) */
+/*             basicData.map((item) => {
+                console.log(item)
+            }) */
+
+            fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`)
+            .then(res => res.json())
+            .then(data => {
+                setSearchedDetails(data)
+
+                
+                
+                console.log(data)
+                console.log(data.species.url.replace("-species" ,""))
+                console.log(data.id)
+                console.log(data.name)
             })
         })
-
+        
+        console.log(searchedDetails)
         
         
-    },[searchedType])
+    },[searchedType,searchedPokemon])
     
 if(!display){
     return ( 
 
         <main>
+            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" name="" id="" />
+            <p>{searchedPokemon}</p>
+            
+
 
 <button onClick={() => {setSearchedType("bug") , setDisplay(true)}}>Bug</button>
 <button onClick={() => {setSearchedType("dark"), setDisplay(true)}}>Dark</button>
@@ -86,12 +114,23 @@ if(!display){
                             />
                     )
                 })} */}
-            {basicData.map((items,index) => {
+{/*             {basicData.map((items,index) => {
                     return(
                             <PokemonCards 
                             key={uuidv4()}
                             name={items.name}
                             url={items.url}
+                            id={index + 1}
+                            />
+
+                    )
+                })}  */}
+            {[searchedDetails].map((items,index) => {
+                    return(
+                            <PokemonCards 
+                            key={uuidv4()}
+                            name={items.name}
+                            g
                             id={index + 1}
                             />
 

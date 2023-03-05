@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 const PokemonCards = (props) => {
     
     const [img,setImg] = useState("")
+    const [id,setId] = useState("")
     
     fetch(`${props.url}`)
     .then(res => res.json())
     .then(data => {
         setImg(data.sprites.other.dream_world.front_default)
-        /* console.log(data.types) */
+        console.log(data.id)
+        setId(data.id)
     })
 
     return ( 
@@ -17,7 +19,7 @@ const PokemonCards = (props) => {
         <div className="pokemonCards">
             <img src={img} alt="" />
             <div>
-                <p>{props.id}</p>
+                <p>{id}</p>
                 <p>{props.name}</p>
             </div>
         </div>

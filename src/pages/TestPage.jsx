@@ -26,7 +26,7 @@ const Testpage = () => {
         .then(data => {
             
             setFilteredData(data.pokemon)
-            
+            /* console.log(data) */
 
             data.pokemon.map((item) => {
                 filteredTypesArr.push(item.pokemon)
@@ -35,7 +35,7 @@ const Testpage = () => {
             })
             setPokemonFiltered(filteredTypesArr)
             arrLength = filteredTypesArr.length
-            console.log(filteredTypesArr)
+            /* console.log(filteredTypesArr) */
 
 
 
@@ -43,7 +43,7 @@ const Testpage = () => {
             .then(res => res.json())
             .then(data => {
                 setBasicData(data.results)
-                console.log(data.results)
+                /* console.log(data.results) */
             })
         })
 
@@ -96,6 +96,7 @@ if(!display){
                             url={items.url}
                             id={index + 1}
                             />
+
                     )
                 })} 
             </main>
@@ -132,6 +133,7 @@ if(!display){
                     url={items.url}
                     id={index + 1}
                     />
+                    /* ============  wrong  index of filtered list */
             )
         })}
 

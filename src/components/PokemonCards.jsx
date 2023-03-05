@@ -14,7 +14,7 @@ const PokemonCards = (props) => {
     })
 
     return ( 
-        <Link to={`/details/${props.id}`}>
+        <Link to={`/details/${id}`}>
         <div className="pokemonCards">
             <img src={img} alt="" />
             <div>

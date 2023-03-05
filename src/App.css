@@ -71,7 +71,7 @@ a {
 input  {
   background-color: whitesmoke;
   border: none;
-  border-radius: 1rem ;
+  border-radius: 1.5rem ;
   font-size: 1.2rem;
   padding: 0 1rem;
   width: 50%;
@@ -117,8 +117,17 @@ button {
   padding: .5rem 1rem;
 
 }
+
+.containerDDD {
+  border: 4px dotted #333;
+  padding: 2rem;
+  margin-top: 40% ;
+  border-radius: 2rem;
+  background-color: hsl(37, 100%, 75%);
+  box-shadow: 0px 10px 15px -3px #00000090;
+}
 .details--details- {
-  height: 100vh;
+   height: 100vh;
 }
 
 .pokemonCards--detailss {

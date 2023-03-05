@@ -14,6 +14,7 @@ const Home = () => {
     
     const [searchedDetails,setSearchedDetails] = useState({})
     const [searchedUrl, setSearchedUrl] = useState()
+    const[buttonClick, setButtonClick] = useState(false)
     
 
 
@@ -55,7 +56,7 @@ const Home = () => {
                 console.log(item)
             }) */
 
-            fetch(`https://pokeapi.co/api/v2/pokemon/pikachu`)
+            fetch(`https://pokeapi.co/api/v2/pokemon/${searchedPokemon}`)
             .then(res => res.json())
             .then(data => {
                 setSearchedDetails(data)
@@ -72,14 +73,15 @@ const Home = () => {
         console.log(searchedDetails)
         
         
-    },[searchedType,searchedPokemon])
+    },[searchedType,searchedPokemon,buttonClick])
     
-if(!display && searchedPokemon.length === 0){
+if(!display && !buttonClick){
     return ( 
 
         <main>
             <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" name="" id="" />
             <p>{searchedPokemon}</p>
+            <button onClick={() => setButtonClick(true)}>SEARCH BUTTTTTTTTTONNN</button>
             
 
 
@@ -129,13 +131,14 @@ if(!display && searchedPokemon.length === 0){
 
             </main>
      )
-}else if(display && searchedPokemon.length === 0) {
+}else if(display && !buttonClick) {
 
     return(
         <main>
 
 
             <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" name="" id="" />
+            
             <p>{searchedPokemon}</p>
 
 <button onClick={() => {setSearchedType("bug") , setDisplay(true)}}>Bug</button>
@@ -178,10 +181,11 @@ if(!display && searchedPokemon.length === 0){
 
     )
 
-}else if(searchedPokemon.length > 0){
+}else if(buttonClick){
     return(
         <main>
             <h1>hallo</h1>
+            <button onClick={() => {setButtonClick(false)}}>All Pokemon</button>
             {[searchedDetails].map((items,index) => {
                    return(
                            <PokemonCards 

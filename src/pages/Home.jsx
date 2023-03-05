@@ -14,7 +14,7 @@ const Home = () => {
     
     const [searchedDetails,setSearchedDetails] = useState({})
     const [searchedUrl, setSearchedUrl] = useState()
-    const[buttonClick, setButtonClick] = useState(false)
+    const [buttonClick, setButtonClick] = useState(false)
     
 
 

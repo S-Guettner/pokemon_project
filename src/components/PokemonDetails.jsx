@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const PokemonDetails = () => {
     const test = useParams()
+    console.log(test.mode)
     
     const [details,setDetails] = useState("")
     const [name,setName] = useState("")
@@ -19,14 +20,14 @@ const PokemonDetails = () => {
             setTypes(data.types)
             testArr.push(data.types[0].type.name)
             testArr.push(data.types[1].type.name)
-            console.log(testArr.toString())
+            /* console.log(testArr.toString()) */
         })
     },[])
 
 
         types.forEach((items) => {
             testArr.push(items.type.name)
-            console.log(testArr)
+            /* console.log(testArr) */
         })
     
 
@@ -35,7 +36,7 @@ const PokemonDetails = () => {
 
     return ( 
         < div className="details--details-">
-         <div className="containerDDD">
+         <div className={`containerDDD ${test.mode}`}>
 
              <img src={details} alt="" />
            

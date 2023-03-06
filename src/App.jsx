@@ -18,7 +18,7 @@ function App() {
 
 
 
-            <Route path='/details/:id' element={<Details />}/>
+            <Route path='/details/:id/:mode' element={<Details />}/>
         </Routes>
         </BrowserRouter>
     </div>

@@ -42,11 +42,17 @@ main {
   justify-content: space-between;
   background-color: rgb(253, 213, 112);
   position: sticky;
-  top: 20px;
+  top: 50px;
   box-shadow: 2px 6px 6px 0px #3030304d;
   z-index: 200;
 }
 
+.buttonSearch img {
+  position: absolute;
+  top:-2.3rem;
+  left: 38%;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.6));
+}
 .placeHolder {
   height: 40px;
   background-color:rgb(255, 241, 205);
@@ -170,4 +176,10 @@ button {
   color: aliceblue;
   font-size: 2rem;
   border-radius: 2.4rem;
+}
+
+.lghitDarkM {
+  text-align: center;
+  width: 30px;
+  height: 30px;
 }

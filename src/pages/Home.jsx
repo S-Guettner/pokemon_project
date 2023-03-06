@@ -82,6 +82,8 @@ if(!display && !buttonClick){
             <div className="buttonSearch">
             <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" className="placeHolder"/>
 
+            <button className="lghitDarkM">☼☽</button>
+
 
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png?20150121202211" alt="" />
 
@@ -146,6 +148,8 @@ if(!display && !buttonClick){
         <main>
            <div className="buttonSearch">
             <input className="placeHolder" onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" />
+
+            
 
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png?20150121202211" alt="" />
             <button className="searchButton" onClick={() => setButtonClick(true)}>SEARCH </button>

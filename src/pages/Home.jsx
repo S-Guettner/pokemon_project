@@ -17,6 +17,18 @@ const Home = () => {
     const [buttonClick, setButtonClick] = useState(false)
     
 
+    // toggle //
+
+
+    const [toggle, setToggle] = useState(true)
+    let classToggle = toggle? "active" : null;
+    let classToggleD = toggle? null : "active";
+    let backgroundDark = toggle? null : "dark";
+    let cardsDark = toggle? null: "cardsDark";
+
+        // toggle //
+
+
 
         useEffect(() => {
 
@@ -78,11 +90,12 @@ const Home = () => {
 if(!display && !buttonClick){
     return ( 
 
-        <main>
+        <main className={` ${backgroundDark}`}>
             <div className="buttonSearch">
             <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" className="placeHolder"/>
 
-            <button className="lghitDarkM">☼☽</button>
+
+            <button onClick={()=> setToggle(!toggle)} className="lghitDarkM"><span className={`sun ${classToggle}`}>☀︎</span> <span className={`moon ${classToggleD}`}>☽</span> </button>
 
 
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png?20150121202211" alt="" />
@@ -130,7 +143,8 @@ if(!display && !buttonClick){
                 })} */}
             {basicData.map((items,index) => {
                     return(
-                            <PokemonCards 
+                            <PokemonCards
+                            cardsDark={cardsDark}
                             key={uuidv4()}
                             name={items.name}
                             url={items.url}
@@ -145,11 +159,11 @@ if(!display && !buttonClick){
 }else if(display && !buttonClick) {
 
     return(
-        <main>
+        <main className={` ${backgroundDark}`}>
            <div className="buttonSearch">
             <input className="placeHolder" onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" />
 
-            <button className="lghitDarkM"><span className="sun">☀︎</span> <span className="moon">☽</span> </button>
+            <button onClick={()=> setToggle(!toggle)} className="lghitDarkM"><span className={`sun ${classToggle}`}>☀︎</span> <span className={`moon ${classToggleD}`}>☽</span> </button>
 
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png?20150121202211" alt="" />
             <button className="searchButton" onClick={() => setButtonClick(true)}>SEARCH </button>
@@ -183,6 +197,7 @@ if(!display && !buttonClick){
             {pokemonFiltered.map((items,index) => {
             return(
                     <PokemonCards 
+                    cardsDark={cardsDark}
                     key={uuidv4()}
                     name={items.name}
                     url={items.url}

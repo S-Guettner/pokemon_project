@@ -36,7 +36,7 @@ main {
   align-items: center;
   width: 90%;
   height: 60px;
-  gap: 1rem;
+  gap: .5rem;
   padding: 0.2rem 1rem;
   border-radius: 2rem;
   justify-content: space-between;
@@ -180,7 +180,7 @@ button {
 
 .lghitDarkM {
   text-align: center;
-  width: 60px;
+  width: 65px;
   height: 30px;
   border-radius: 1.4rem;
   align-items: center;
@@ -202,4 +202,19 @@ button {
   border-radius: 50%;
   padding:2px 6px;
   color: aliceblue;
+}
+
+.active {
+  transition-duration: .2s;
+  border: 4px rgba(158, 158, 255, 0.728) solid;
+}
+
+.dark {
+  background-color: #333 !important;
+}
+
+
+.cardsDark {
+  color:whitesmoke;
+  background-color: #000;
 }

@@ -8,16 +8,13 @@ import TypesPage from './pages/TypesPage'
 
 function App() {
 
-// hello //
+
   return (
     <div className="App">
         <BrowserRouter>
         <Routes>
             <Route path='/' element={<Home />}/>
             <Route path='/type' element={<TypesPage />}/>
-
-
-
             <Route path='/details/:id/:mode' element={<Details />}/>
         </Routes>
         </BrowserRouter>

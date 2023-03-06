@@ -4,22 +4,25 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Home = () => {
     
-    const [pokemonFiltered,setPokemonFiltered] = useState([])
-    
-    
+    // state of unfiltered list
     const [basicData,setBasicData] = useState([])
+    // state of filtered by type list
+    const [pokemonFiltered,setPokemonFiltered] = useState([])
+    // state of choosen type
     const [searchedType,setSearchedType] = useState("grass")
+    // state of conditional render
     const [display,setDisplay] = useState(false)
+    // state of search input
     const [searchedPokemon, setSearchedPokemon] = useState("")
-    
+    // state of search
     const [searchedDetails,setSearchedDetails] = useState({})
+    // state of changed url for search
     const [searchedUrl, setSearchedUrl] = useState()
+    // state of search button
     const [buttonClick, setButtonClick] = useState(false)
     
 
-    // toggle //
-
-
+    // toggle
     const [toggle, setToggle] = useState(true)
     let classToggle = toggle? "active" : null;
     let classToggleD = toggle? null : "active";
@@ -29,67 +32,55 @@ const Home = () => {
     let buttonSearchDark = toggle? null: "buttonSearchDark";
     let inputDark = toggle? null: "inputDark";
 
-        // toggle //
 
 
 
+        // data fetches
         useEffect(() => {
 
         const filteredTypesArr = []
         let arrLength
-        /* let searchedType = "water" */
         
+        // fetch for list filtered by type
         fetch(`https://pokeapi.co/api/v2/type/${searchedType}`)
         .then(res => res.json())
         .then(data => {
             
-            /* setFilteredData(data.pokemon) */
-            /* console.log(data) */
 
             data.pokemon.map((item) => {
                 filteredTypesArr.push(item.pokemon)
-                /* console.log(data.pokemon) */
+
                 
             })
             setPokemonFiltered(filteredTypesArr)
             arrLength = filteredTypesArr.length
-            /* console.log(filteredTypesArr) */
 
 
 
+            // fetch for unfiltered list
             fetch(`https://pokeapi.co/api/v2/pokemon?limit=100&offset=0`)
             .then(res => res.json())
             .then(data => {
                 setBasicData(data.results)
-                /* console.log(basicData) */
+
             })
 
-  /*           const copy = [...basicData]
-            console.log(copy)
-            console.log(basicData) */
-/*             basicData.map((item) => {
-                console.log(item)
-            }) */
-
+            // fetch for search result
             fetch(`https://pokeapi.co/api/v2/pokemon/${searchedPokemon}`)
             .then(res => res.json())
             .then(data => {
                 setSearchedDetails(data)
                 setSearchedUrl(data.species.url.replace("-species" ,""))
                 
-                
-                console.log(data)
-                console.log(data.species.url.replace("-species" ,""))
-                console.log(data.id)
-                console.log(data.name)
             })
         })
         
-        console.log(searchedDetails)
+
         
         
     },[searchedType,searchedPokemon,buttonClick])
     
+    // renders unfiltered list
 if(!display && !buttonClick){
     return ( 
 
@@ -107,7 +98,7 @@ if(!display && !buttonClick){
             <button className="searchButton" onClick={() => setButtonClick(true)}>SEARCH </button>
             </div>
             
-
+{/* buttons for state change of type search */}
 <div className={`buttonsContainer ${buttonsContainerDark}`}>
 <button onClick={() => {setSearchedType("bug") , setDisplay(true)}}>Bug</button>
 <button onClick={() => {setSearchedType("dark"), setDisplay(true)}}>Dark</button>
@@ -131,19 +122,7 @@ if(!display && !buttonClick){
 
 </div>
 
-                {/* =========== pokemonFiltered ===========> gibt gefilterte Liste zurück
-                    =========== basicData       ===========> gibt ungefilterte Liste zurück
-                */}
-{/*                 {pokemonFiltered.map((items,index) => {
-                    return(
-                            <PokemonCards 
-                            key={uuidv4()}
-                            name={items.name}
-                            url={items.url}
-                            id={index + 1}
-                            />
-                    )
-                })} */}
+
             {basicData.map((items,index) => {
                     return(
                             <PokemonCards
@@ -159,6 +138,7 @@ if(!display && !buttonClick){
 
             </main>
      )
+     // renders filtered list
 }else if(display && !buttonClick) {
 
     return(
@@ -178,7 +158,7 @@ if(!display && !buttonClick){
             <button className="searchButton" onClick={() => setButtonClick(true)}>SEARCH </button>
             </div>
             
-            
+{/* buttons for state change of type search */}
 <div className={`buttonsContainer ${buttonsContainerDark}`}>
 <button onClick={() => {setSearchedType("bug") , setDisplay(true)}}>Bug</button>
 <button onClick={() => {setSearchedType("dark"), setDisplay(true)}}>Dark</button>
@@ -212,7 +192,6 @@ if(!display && !buttonClick){
                     url={items.url}
                     id={index + 1}
                     />
-                    /* ============  wrong  index of filtered list */
             )
         })}
 
@@ -220,20 +199,20 @@ if(!display && !buttonClick){
 
 
     )
-
+        // renders search result
 }else if(buttonClick){
     return(
         <main>
             
             <button onClick={() => {setButtonClick(false)}}>All Pokemon</button>
             {[searchedDetails].map((items,index) => {
-                   return(
-                           <PokemonCards 
-                           key={uuidv4()}
-                           name={items.name}
-                           url={searchedUrl}
-                           id={index + 1}
-                           />
+                return(
+                    <PokemonCards 
+                    key={uuidv4()}
+                    name={items.name}
+                    url={searchedUrl}
+                    id={index + 1}
+                    />
 
                    )
                })}  

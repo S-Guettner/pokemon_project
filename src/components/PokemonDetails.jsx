@@ -20,14 +20,12 @@ const PokemonDetails = () => {
             setTypes(data.types)
             testArr.push(data.types[0].type.name)
             testArr.push(data.types[1].type.name)
-            /* console.log(testArr.toString()) */
         })
     },[])
 
 
         types.forEach((items) => {
             testArr.push(items.type.name)
-            /* console.log(testArr) */
         })
     
 

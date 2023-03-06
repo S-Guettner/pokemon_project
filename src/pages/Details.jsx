@@ -16,7 +16,6 @@ const Details = () => {
         
         
            <div className="pokemonCardsDetails">
-            {/* <img src={img} alt="" /> */}
             <div >
 
             <PokemonDetails 

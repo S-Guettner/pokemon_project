@@ -12,7 +12,7 @@ const SingleType = (props) => {
     
     return ( 
 
-        <div>
+        <div >
             <button onClick={(e) => {arr.push(e.target.value)
             console.log(arr.join(" "))
             

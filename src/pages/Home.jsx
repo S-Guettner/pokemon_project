@@ -25,6 +25,9 @@ const Home = () => {
     let classToggleD = toggle? null : "active";
     let backgroundDark = toggle? null : "dark";
     let cardsDark = toggle? null: "cardsDark";
+    let buttonsContainerDark = toggle? null: "buttonsContainerDark";
+    let buttonSearchDark = toggle? null: "buttonSearchDark";
+    let inputDark = toggle? null: "inputDark";
 
         // toggle //
 
@@ -91,8 +94,8 @@ if(!display && !buttonClick){
     return ( 
 
         <main className={` ${backgroundDark}`}>
-            <div className="buttonSearch">
-            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" className="placeHolder"/>
+            <div className={`buttonSearch ${buttonSearchDark}`}>
+            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" className={`placeHolder ${inputDark}`}/>
 
 
             <button onClick={()=> setToggle(!toggle)} className="lghitDarkM"><span className={`sun ${classToggle}`}>☀︎</span> <span className={`moon ${classToggleD}`}>☽</span> </button>
@@ -105,7 +108,7 @@ if(!display && !buttonClick){
             </div>
             
 
-<div className="buttonsContainer">
+<div className={`buttonsContainer ${buttonsContainerDark}`}>
 <button onClick={() => {setSearchedType("bug") , setDisplay(true)}}>Bug</button>
 <button onClick={() => {setSearchedType("dark"), setDisplay(true)}}>Dark</button>
 <button onClick={() => {setSearchedType("dragon") ,setDisplay(true)}}>Dragon</button>
@@ -160,17 +163,23 @@ if(!display && !buttonClick){
 
     return(
         <main className={` ${backgroundDark}`}>
-           <div className="buttonSearch">
-            <input className="placeHolder" onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" />
+
+
+            <div className={`buttonSearch ${buttonSearchDark}`}>
+            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" className={`placeHolder ${inputDark}`}/>
+
 
             <button onClick={()=> setToggle(!toggle)} className="lghitDarkM"><span className={`sun ${classToggle}`}>☀︎</span> <span className={`moon ${classToggleD}`}>☽</span> </button>
 
+
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png?20150121202211" alt="" />
+
+
             <button className="searchButton" onClick={() => setButtonClick(true)}>SEARCH </button>
             </div>
             
             
-<div className="buttonsContainer">
+<div className={`buttonsContainer ${buttonsContainerDark}`}>
 <button onClick={() => {setSearchedType("bug") , setDisplay(true)}}>Bug</button>
 <button onClick={() => {setSearchedType("dark"), setDisplay(true)}}>Dark</button>
 <button onClick={() => {setSearchedType("dragon") ,setDisplay(true)}}>Dragon</button>

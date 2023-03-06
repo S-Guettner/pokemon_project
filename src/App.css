@@ -218,3 +218,17 @@ button {
   color:whitesmoke;
   background-color: #000;
 }
+
+.buttonsContainerDark {
+  background-color: black;
+}
+
+.buttonSearchDark {
+  background-color: rgba(0, 0, 0, 0.521);
+}
+
+.inputDark {
+  background-color: #333333;
+  color:whitesmoke;
+}
+

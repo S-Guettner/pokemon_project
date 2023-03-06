@@ -80,10 +80,13 @@ if(!display && !buttonClick){
 
         <main>
             <div className="buttonSearch">
-            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" />
+            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" className="placeHolder"/>
+
 
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png?20150121202211" alt="" />
-            <button onClick={() => setButtonClick(true)}>SEARCH </button>
+
+
+            <button className="searchButton" onClick={() => setButtonClick(true)}>SEARCH </button>
             </div>
             
 
@@ -142,10 +145,10 @@ if(!display && !buttonClick){
     return(
         <main>
            <div className="buttonSearch">
-            <input onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" />
+            <input className="placeHolder" onChange={(e) => setSearchedPokemon(e.target.value) } type="text" placeholder="🔍" name="" id="" />
 
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/269px-International_Pok%C3%A9mon_logo.svg.png?20150121202211" alt="" />
-            <button onClick={() => setButtonClick(true)}>SEARCH </button>
+            <button className="searchButton" onClick={() => setButtonClick(true)}>SEARCH </button>
             </div>
             
             
@@ -193,7 +196,7 @@ if(!display && !buttonClick){
 }else if(buttonClick){
     return(
         <main>
-            <h1>hallo</h1>
+            
             <button onClick={() => {setButtonClick(false)}}>All Pokemon</button>
             {[searchedDetails].map((items,index) => {
                    return(

@@ -31,27 +31,41 @@ main {
 
 .buttonSearch {
   display: flex;
+  align-items: center;
   width: 90%;
+  height: 60px;
   gap: 1rem;
-  padding: 0.2rem .2rem;
+  padding: 0.2rem 1rem;
   border-radius: 2rem;
   justify-content: space-between;
   background-color: rgb(253, 213, 112);
   position: sticky;
   top: 20px;
   box-shadow: 2px 6px 6px 0px #3030304d;
+  z-index: 200;
+}
+
+.placeHolder {
+  height: 40px;
+  background-color:rgb(255, 241, 205);
 }
 
 .buttonSearch img {
   width: 100px;
 }
-.buttonSearch button {
-  background-color: whitesmoke;
-  color: #333;
+.searchButton {
+  background-color: rgb(40 114 185);
+  color: whitesmoke;
+  transition-duration: .4s;
 }
+
+.searchButton:hover {
+  transform: scale(.95);
+}
+
 .pokemonCards {
+  z-index: 100;
   background-color: whitesmoke;
-  border: 1px solid #333;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -62,6 +76,22 @@ main {
   color: aliceblue;
   width: 380px;
   box-shadow: 0px 12px 15px #1212126a;
+  position: relative;
+  transition-duration: .4s;
+}
+
+.pokemonCards:hover:after{
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(20deg, rgba(67, 67, 67, 0.065) 50%, rgba(233, 233, 233, 0.102) 50%);
+  border-radius: 1rem;
+
+}
+
+.pokemonCards:hover {
+  transform: scale(0.98);
 }
 
 a {
@@ -121,7 +151,7 @@ button {
 .containerDDD {
   border: 4px dotted #333;
   padding: 2rem;
-  margin-top: 40% ;
+  margin-top: 10% ;
   border-radius: 2rem;
   background-color: hsl(37, 100%, 75%);
   box-shadow: 0px 10px 15px -3px #00000090;

@@ -202,7 +202,7 @@ if(!display && !buttonClick){
         // renders search result
 }else if(buttonClick){
     return(
-        <main>
+        <main className={` ${backgroundDark}`}>
             
             <button onClick={() => {setButtonClick(false)}}>All Pokemon</button>
             {[searchedDetails].map((items,index) => {
